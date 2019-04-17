@@ -3,8 +3,9 @@ package collections;
 import java.util.LinkedList;
 import java.util.List;
 import exceptions.*;
+import interfaces.IRBTree;
 
-public class RebBlackTree<T extends Comparable<T>> {
+public class RebBlackTree<T extends Comparable<T>> implements IRBTree<T>{
 
 	private NodeRB<T> root;
 
@@ -12,7 +13,7 @@ public class RebBlackTree<T extends Comparable<T>> {
 		root = null;
 	}
 
-	public void insert( T date ) throws ElementExist {
+	public void insert(T date) throws ElementExist {
 		NodeRB<T> node = new NodeRB<T>( date );
 
 		NodeRB<T> r2 = null;
