@@ -511,10 +511,20 @@ public class NodeRB<T extends Comparable<T>> {
 		}
 	}
 	
+	
 	///////////////////////////////////////
 	//PRIVATE CLASS
 	///////////////////////////////////////
 	
+	public T getDate() {
+		return date;
+	}
+
+	public void setDate(T date) {
+		this.date = date;
+	}
+
+
 	private class Root{
 
 		private NodeRB<T> answer;

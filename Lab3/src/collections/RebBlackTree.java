@@ -2,6 +2,9 @@ package collections;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import org.w3c.dom.Node;
+
 import exceptions.*;
 import interfaces.IRBTree;
 
@@ -40,24 +43,39 @@ public class RebBlackTree<T extends Comparable<T>> implements IRBTree<T>{
 		}
 	}
 
-	public List<T> preorden(){
-		List<T> preorden = new LinkedList<T>( );
-		if( root != null ) {
-			root.preOrden( preorden );
+	public void preorden(NodeRB<T> root){
+		
+		if(root != null) {
+			System.out.print(root.getDate()+""+root.getColor()+", ");
+			if(root.getLeftSon() != null) {
+				preorden(root.getLeftSon());
+			}
+			if(root.getRightSon() != null) {
+				preorden(root.getRightSon());
+			}
 		}
-		return preorden;
+		
 	}
 
 	public boolean exist(T date){
 		return root != null ? root.exist(date) : false;
 	}
 
-	public T search(T date){
-		try{
-			return root != null ? root.getNode(date).getInfoNode() : null;
-		}catch( ElementDontExist e ) {
-			return null;
+	public boolean search(NodeRB<T> node, T value) {
+	    
+		if (node == null) {
+			return false;
 		}
+		
+		int cmp = value.compareTo(node.getDate());
+	
+		if (cmp < 0) {
+			return search(node.getLeftSon(), value);
+		}
+		if (cmp > 0) {
+			return search(node.getRightSon(), value);
+		}
+		return true;
 	}
 
 	public NodeRB<T> getRoot(){
