@@ -10,13 +10,10 @@ public class Bank {
 	
 	private AvlTree<Action> theActions;
 	private RebBlackTree<Badge> theBadges;
-	private LinkedList<Bitcoin> theBitcoins;
+	private Bitcoin theBitcoins;
 	
-	public Bank(AvlTree<Action> theActions, RebBlackTree<Badge> theBadges, LinkedList<Bitcoin> theBitcoins) {
+	public Bank() {
 		super();
-		this.theActions = theActions;
-		this.theBadges = theBadges;
-		this.theBitcoins = theBitcoins;
 	}
 
 	public AvlTree<Action> getTheActions() {
@@ -35,11 +32,11 @@ public class Bank {
 		this.theBadges = theBadges;
 	}
 
-	public LinkedList<Bitcoin> getTheBitcoins() {
+	public Bitcoin getTheBitcoins() {
 		return theBitcoins;
 	}
 
-	public void setTheBitcoins(LinkedList<Bitcoin> theBitcoins) {
+	public void setTheBitcoins(Bitcoin theBitcoins) {
 		this.theBitcoins = theBitcoins;
 	}
 

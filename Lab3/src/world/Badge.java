@@ -1,6 +1,6 @@
 package world;
 
-public class Badge implements Comparable{
+public class Badge implements Comparable<Badge>{
 	
 	private double price;
 	private String initialDate;
@@ -39,9 +39,15 @@ public class Badge implements Comparable{
 	}
 
 	@Override
-	public int compareTo(Object o) {
+	public int compareTo(Badge o) {
 		// TODO Auto-generated method stub
-		return 0;
+		 if (price > o.getPrice()) {
+	            return 1;
+	        } else if (price < o.getPrice()) {
+	            return -1;
+	        } else {
+	            return 0;
+	        }
 	}
 	
 }

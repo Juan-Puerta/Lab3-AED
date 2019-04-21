@@ -2,12 +2,24 @@ package application;
 	
 import javafx.application.Application;
 import javafx.stage.Stage;
+import world.Bank;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
+	
+	private Bank theBank = new Bank();
+	
+	public Bank getTheBank() {
+		return theBank;
+	}
+
+	public void setTheBank(Bank theBank) {
+		this.theBank = theBank;
+	}
+
 	@Override
 	public void start(Stage primaryStage) {
 		try {

@@ -1,16 +1,10 @@
 package world;
 
-public class Action implements Comparable{
+public class Action implements Comparable<Action>{
 
 	private double price;
 	private String initialDate;
 	private String finalDate;
-	
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	public Action(double price, String initialDate, String finalDate) {
 		super();
@@ -41,6 +35,18 @@ public class Action implements Comparable{
 
 	public void setFinalDate(String finalDate) {
 		this.finalDate = finalDate;
+	}
+
+	@Override
+	public int compareTo(Action o) {
+		// TODO Auto-generated method stub
+		  if (price > o.getPrice()) {
+	            return 1;
+	        } else if (price < o.getPrice()) {
+	            return -1;
+	        } else {
+	            return 0;
+	        }
 	}
 	
 	

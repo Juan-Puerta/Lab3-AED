@@ -1,15 +1,18 @@
 package world;
 
-public class Bitcoin implements Comparable{
+public class Bitcoin implements Comparable<Bitcoin>{
 	
 	private double price;
 	private String initialDate;
 	private String finalDate;
+	private Bitcoin next;
 
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
+	public Bitcoin getNext() {
+		return next;
+	}
+
+	public void setNext(Bitcoin next) {
+		this.next = next;
 	}
 
 	public Bitcoin(double price, String initialDate, String finalDate) {
@@ -17,6 +20,7 @@ public class Bitcoin implements Comparable{
 		this.price = price;
 		this.initialDate = initialDate;
 		this.finalDate = finalDate;
+		this.next = null;
 	}
 
 	public double getPrice() {
@@ -41,6 +45,18 @@ public class Bitcoin implements Comparable{
 
 	public void setFinalDate(String finalDate) {
 		this.finalDate = finalDate;
+	}
+
+	@Override
+	public int compareTo(Bitcoin o) {
+		// TODO Auto-generated method stub
+		 if (price > o.getPrice()) {
+	            return 1;
+	        } else if (price < o.getPrice()) {
+	            return -1;
+	        } else {
+	            return 0;
+	        }
 	}
 	
 	
