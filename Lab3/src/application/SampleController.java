@@ -54,6 +54,7 @@ public class SampleController {
 		Alert alert = new Alert(AlertType.INFORMATION," GRACIAS POR USAR NUESTRA APLICACIÓN ", ButtonType.OK);
 		alert.setHeaderText("Hasta Pronto");
 		alert.showAndWait();	
+		alert.setTitle("BOLSA DE VALORES DE COLOMBIA");
 		System.exit(0);
 	}
 	
