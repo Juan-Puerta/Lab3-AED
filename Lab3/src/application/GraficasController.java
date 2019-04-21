@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.AreaChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
@@ -20,6 +21,7 @@ public class GraficasController {
 	private CheckBox acciones;
 	private Button cargar;
 	private Button volver;
+	private AreaChart grafico;
 	
 	
 	public void initialize() {
