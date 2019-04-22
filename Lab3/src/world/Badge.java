@@ -1,17 +1,48 @@
 package world;
 
-public class Badge implements Comparable<Badge>{
+import java.io.Serializable;
+import java.util.Date;
+
+public class Badge implements Comparable<Badge>, Serializable{
 	
+	private String name;
+	private Date date;
 	private double price;
-	private String initialDate;
-	private String finalDate;
 
 
-	public Badge(double price, String initialDate, String finalDate) {
+	public Badge(String name, Date date, double price) {
 		super();
+		this.name = name;
+		this.date = date;
 		this.price = price;
-		this.initialDate = initialDate;
-		this.finalDate = finalDate;
+	}
+
+	@Override
+	public int compareTo(Badge o) {
+		// TODO Auto-generated method stub
+		 if (date.compareTo(o.getDate()) > 0) {
+	            return 1;
+	        } else if (date.compareTo(o.getDate()) < 0) {
+	            return -1;
+	        } else {
+	            return 0;
+	        }
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public double getPrice() {
@@ -21,33 +52,6 @@ public class Badge implements Comparable<Badge>{
 	public void setPrice(double price) {
 		this.price = price;
 	}
-
-	public String getInitialDate() {
-		return initialDate;
-	}
-
-	public void setInitialDate(String initialDate) {
-		this.initialDate = initialDate;
-	}
-
-	public String getFinalDate() {
-		return finalDate;
-	}
-
-	public void setFinalDate(String finalDate) {
-		this.finalDate = finalDate;
-	}
-
-	@Override
-	public int compareTo(Badge o) {
-		// TODO Auto-generated method stub
-		 if (price > o.getPrice()) {
-	            return 1;
-	        } else if (price < o.getPrice()) {
-	            return -1;
-	        } else {
-	            return 0;
-	        }
-	}
+	
 	
 }
