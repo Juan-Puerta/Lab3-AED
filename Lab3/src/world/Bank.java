@@ -8,39 +8,149 @@ import collections.RebBlackTree;
 
 public class Bank {
 	
-	private AvlTree<Action> theActions;
-	private RebBlackTree<Badge> theBadges;
-	private Bitcoin theBitcoins;
+	//Actions
+	private AvlTree<Action> theActionUS30;
+	private AvlTree<Action> theActionUSSPX500;
+	private AvlTree<Action> theActionAAPL;
+	private AvlTree<Action> theActionMSFT;
+	private AvlTree<Action> theActionWTI;
+	
+	//Badges
+	private RebBlackTree<Badge> theBadgeXAUUSD;
+	private RebBlackTree<Badge> theBadgeEURUSD;
+	private RebBlackTree<Badge> theBadgeGBPCAD;
+	private RebBlackTree<Badge> theBadgeUSDJPY;
+	
+	//Bitcoin
+	private Bitcoin theBitcoin;
 	
 	public Bank() {
-		super();
+		theActionUS30 = new AvlTree<Action>();
+		theActionUSSPX500 = new AvlTree<Action>();
+		theActionAAPL = new AvlTree<Action>();
+		theActionMSFT = new AvlTree<Action>();
+		theActionWTI = new AvlTree<Action>();
+		
+		theBadgeXAUUSD = new RebBlackTree<Badge>();
+		theBadgeEURUSD = new RebBlackTree<Badge>();
+		theBadgeGBPCAD = new RebBlackTree<Badge>();
+		theBadgeUSDJPY = new RebBlackTree<Badge>();
+		
+		theBitcoin = null;
 	}
 
-	public AvlTree<Action> getTheActions() {
-		return theActions;
+	public void agregarBalanceGeneral(BalanceGeneral nuevo) {
+		
+		if(elBalence == null) {
+			elBalence = nuevo;
+		}else {
+			nuevo.setSiguiente(elBalence);
+			elBalence.setAnterior(nuevo);
+			elBalence = nuevo;
+		}
+		
 	}
-
-	public void setTheActions(AvlTree<Action> theActions) {
-		this.theActions = theActions;
-	}
-
-	public RebBlackTree<Badge> getTheBadges() {
-		return theBadges;
-	}
-
-	public void setTheBadges(RebBlackTree<Badge> theBadges) {
-		this.theBadges = theBadges;
-	}
-
-	public Bitcoin getTheBitcoins() {
-		return theBitcoins;
-	}
-
-	public void setTheBitcoins(Bitcoin theBitcoins) {
-		this.theBitcoins = theBitcoins;
-	}
-
 	
+	public BalanceGeneral buscar(String fecha) {
+		
+		if(elBalence != null) {
+			
+			boolean encontrado = false;
+			BalanceGeneral aux = elBalence;
+			
+			while(elBalence != null && !encontrado) {
+				
+				if(aux.getFecha().equals(fecha)) {
+					encontrado = true;
+				}else {
+					aux = aux.getSiguiente();
+				}
+				
+			}
+			return aux;
+		}else {
+			return null;
+		}
+		
+	}
 	
-	
+	public AvlTree<Action> getTheActionUS30() {
+		return theActionUS30;
+	}
+
+	public void setTheActionUS30(AvlTree<Action> theActionUS30) {
+		this.theActionUS30 = theActionUS30;
+	}
+
+	public AvlTree<Action> getTheActionUSSPX500() {
+		return theActionUSSPX500;
+	}
+
+	public void setTheActionUSSPX500(AvlTree<Action> theActionUSSPX500) {
+		this.theActionUSSPX500 = theActionUSSPX500;
+	}
+
+	public AvlTree<Action> getTheActionAAPL() {
+		return theActionAAPL;
+	}
+
+	public void setTheActionAAPL(AvlTree<Action> theActionAAPL) {
+		this.theActionAAPL = theActionAAPL;
+	}
+
+	public AvlTree<Action> getTheActionMSFT() {
+		return theActionMSFT;
+	}
+
+	public void setTheActionMSFT(AvlTree<Action> theActionMSFT) {
+		this.theActionMSFT = theActionMSFT;
+	}
+
+	public AvlTree<Action> getTheActionWTI() {
+		return theActionWTI;
+	}
+
+	public void setTheActionWTI(AvlTree<Action> theActionWTI) {
+		this.theActionWTI = theActionWTI;
+	}
+
+	public RebBlackTree<Badge> getTheBadgeXAUUSD() {
+		return theBadgeXAUUSD;
+	}
+
+	public void setTheBadgeXAUUSD(RebBlackTree<Badge> theBadgeXAUUSD) {
+		this.theBadgeXAUUSD = theBadgeXAUUSD;
+	}
+
+	public RebBlackTree<Badge> getTheBadgeEURUSD() {
+		return theBadgeEURUSD;
+	}
+
+	public void setTheBadgeEURUSD(RebBlackTree<Badge> theBadgeEURUSD) {
+		this.theBadgeEURUSD = theBadgeEURUSD;
+	}
+
+	public RebBlackTree<Badge> getTheBadgeGBPCAD() {
+		return theBadgeGBPCAD;
+	}
+
+	public void setTheBadgeGBPCAD(RebBlackTree<Badge> theBadgeGBPCAD) {
+		this.theBadgeGBPCAD = theBadgeGBPCAD;
+	}
+
+	public RebBlackTree<Badge> getTheBadgeUSDJPY() {
+		return theBadgeUSDJPY;
+	}
+
+	public void setTheBadgeUSDJPY(RebBlackTree<Badge> theBadgeUSDJPY) {
+		this.theBadgeUSDJPY = theBadgeUSDJPY;
+	}
+
+	public Bitcoin getTheBitcoin() {
+		return theBitcoin;
+	}
+
+	public void setTheBitcoin(Bitcoin theBitcoin) {
+		this.theBitcoin = theBitcoin;
+	}	
 }
