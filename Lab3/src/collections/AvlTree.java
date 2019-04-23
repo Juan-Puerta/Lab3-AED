@@ -1,6 +1,7 @@
 package collections;
 
 import interfaces.IAVLTree;
+import world.Action;
 
 public class AvlTree<T extends Comparable<T>> implements IAVLTree<T>{
 
@@ -242,9 +243,7 @@ public class AvlTree<T extends Comparable<T>> implements IAVLTree<T>{
 		return root;
 	}
 		
-	public void setRoot(NodeAVL<T> root) {
-		this.root = root;
-	}
+
 		
 		
 	public boolean validateBSTInvarient(NodeAVL<T> node) {
