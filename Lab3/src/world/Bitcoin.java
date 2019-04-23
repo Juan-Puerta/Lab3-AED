@@ -1,10 +1,13 @@
 package world;
 
-public class Bitcoin implements Comparable<Bitcoin>{
+import java.io.Serializable;
+import java.util.Date;
+
+public class Bitcoin implements Comparable<Bitcoin>, Serializable{
 	
+	private String name;
 	private double price;
-	private String initialDate;
-	private String finalDate;
+	private Date date;
 	private Bitcoin next;
 
 	public Bitcoin getNext() {
@@ -15,12 +18,21 @@ public class Bitcoin implements Comparable<Bitcoin>{
 		this.next = next;
 	}
 
-	public Bitcoin(double price, String initialDate, String finalDate) {
+	public Bitcoin(String name, Date date, double price) {
 		super();
 		this.price = price;
-		this.initialDate = initialDate;
-		this.finalDate = finalDate;
+		this.date = date;
 		this.next = null;
+		this.name = name;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public double getPrice() {
@@ -31,28 +43,20 @@ public class Bitcoin implements Comparable<Bitcoin>{
 		this.price = price;
 	}
 
-	public String getInitialDate() {
-		return initialDate;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setInitialDate(String initialDate) {
-		this.initialDate = initialDate;
-	}
-
-	public String getFinalDate() {
-		return finalDate;
-	}
-
-	public void setFinalDate(String finalDate) {
-		this.finalDate = finalDate;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	@Override
 	public int compareTo(Bitcoin o) {
 		// TODO Auto-generated method stub
-		 if (price > o.getPrice()) {
+		 if (date.compareTo(o.getDate()) > 0) {
 	            return 1;
-	        } else if (price < o.getPrice()) {
+	        } else if (date.compareTo(o.getDate()) < 0) {
 	            return -1;
 	        } else {
 	            return 0;

@@ -1,5 +1,6 @@
 package world;
 
+import java.util.Date;
 import java.util.LinkedList;
 
 import collections.AvlTree;
@@ -39,31 +40,30 @@ public class Bank {
 		theBitcoin = null;
 	}
 
-	public void agregarBalanceGeneral(BalanceGeneral nuevo) {
+	public void addBitCoin(Bitcoin newBitcoin) {
 		
-		if(elBalence == null) {
-			elBalence = nuevo;
+		if(theBitcoin == null) {
+			theBitcoin = newBitcoin;
 		}else {
-			nuevo.setSiguiente(elBalence);
-			elBalence.setAnterior(nuevo);
-			elBalence = nuevo;
+			newBitcoin.setNext(theBitcoin);
+			theBitcoin = newBitcoin;
 		}
 		
 	}
 	
-	public BalanceGeneral buscar(String fecha) {
+	public Bitcoin search(Date date) {
 		
-		if(elBalence != null) {
+		if(date != null) {
 			
-			boolean encontrado = false;
-			BalanceGeneral aux = elBalence;
+			boolean found = false;
+			Bitcoin aux = theBitcoin;
 			
-			while(elBalence != null && !encontrado) {
+			while(theBitcoin != null && !found) {
 				
-				if(aux.getFecha().equals(fecha)) {
-					encontrado = true;
+				if(aux.getDate().compareTo(date) == 0) {
+					found = true;
 				}else {
-					aux = aux.getSiguiente();
+					aux = aux.getNext();
 				}
 				
 			}
