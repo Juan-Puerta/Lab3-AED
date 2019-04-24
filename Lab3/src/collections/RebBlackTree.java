@@ -97,5 +97,11 @@ public class RebBlackTree<T extends Comparable<T>> implements IRBTree<T>{
 	public T getHigher(){
 		return root == null ? null : root.getHigher( ).getInfoNode( );
 	}
+
+	public void setRoot(NodeRB<T> date) {
+		this.root = date;
+	}
+	
+	
 	
 }

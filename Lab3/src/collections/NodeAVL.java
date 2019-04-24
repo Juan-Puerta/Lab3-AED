@@ -1,6 +1,8 @@
 package collections;
 
-public class NodeAVL<T extends Comparable<T>> {
+import java.io.Serializable;
+
+public class NodeAVL<T extends Comparable<T>> implements Serializable{
 
     public int bf;
     public T value;

@@ -1,9 +1,10 @@
 package collections;
 
+import java.io.Serializable;
 import java.util.List;
 import exceptions.*;
 
-public class NodeRB<T extends Comparable<T>> {
+public class NodeRB<T extends Comparable<T>> implements Serializable{
 
 	public static final int BLACK = 1;
 	public static final int RED = 0;

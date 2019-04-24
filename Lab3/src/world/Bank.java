@@ -9,6 +9,7 @@ import java.util.LinkedList;
 
 import collections.AvlTree;
 import collections.NodeAVL;
+import collections.NodeRB;
 import collections.RebBlackTree;
 
 public class Bank {
@@ -159,38 +160,46 @@ public class Bank {
 	}	
 	
 	
-	public void serializE() throws Exception{
+	public void serializable() throws Exception{
 		
-		ObjectOutputStream serializeAAPL = new ObjectOutputStream(new FileOutputStream("Datas/dataAAPL.txt"));
+		ObjectOutputStream serializeAAPL = new ObjectOutputStream(new FileOutputStream("Datas/dataAAPL"));
 		serializeAAPL.writeObject(theActionAAPL.getRoot());
-		ObjectOutputStream serializeBITCOIN = new ObjectOutputStream(new FileOutputStream("Datas/dataBITCOIN.txt"));
-		serializeBITCOIN.writeObject(theBitcoin);
-		ObjectOutputStream serializeEURUSD = new ObjectOutputStream(new FileOutputStream("Datas/dataEURUSD.txt"));
-		serializeEURUSD.writeObject(theBadgeEURUSD.getRoot());
-		ObjectOutputStream serializeGBPCAD = new ObjectOutputStream(new FileOutputStream("Datas/dataGBPCAD.txt"));
-		serializeGBPCAD.writeObject(theBadgeGBPCAD.getRoot());
-		ObjectOutputStream serializeMSFT = new ObjectOutputStream(new FileOutputStream("Datas/dataMSFT.txt"));
-		serializeMSFT.writeObject(theActionMSFT.getRoot());
-		ObjectOutputStream serializeUS30 = new ObjectOutputStream(new FileOutputStream("Datas/dataUS30.txt"));
-		serializeUS30.writeObject(theActionUS30);
-		ObjectOutputStream serializeUSDJPY = new ObjectOutputStream(new FileOutputStream("Datas/dataUSDJPY.txt"));
-		serializeUSDJPY.writeObject(theBadgeUSDJPY);
-		ObjectOutputStream serializeUSSPX500 = new ObjectOutputStream(new FileOutputStream("Datas/dataUSSPX500.txt"));
-		serializeUSSPX500.writeObject(theActionUSSPX500);
-		ObjectOutputStream serializeWTI = new ObjectOutputStream(new FileOutputStream("Datas/dataWTI.txt"));
-		serializeWTI.writeObject(theActionWTI);
-		ObjectOutputStream serializeXAUUSD = new ObjectOutputStream(new FileOutputStream("Datas/dataXAUUSD.txt"));
-		serializeXAUUSD.writeObject(theBadgeXAUUSD);
-		
 		serializeAAPL.close();
+		
+		ObjectOutputStream serializeBITCOIN = new ObjectOutputStream(new FileOutputStream("Datas/dataBITCOIN"));
+		serializeBITCOIN.writeObject(theBitcoin);
 		serializeBITCOIN.close();
+		
+		ObjectOutputStream serializeEURUSD = new ObjectOutputStream(new FileOutputStream("Datas/dataEURUSD"));
+		serializeEURUSD.writeObject(theBadgeEURUSD.getRoot());
 		serializeEURUSD.close();
+		
+		ObjectOutputStream serializeGBPCAD = new ObjectOutputStream(new FileOutputStream("Datas/dataGBPCAD"));
+		serializeGBPCAD.writeObject(theBadgeGBPCAD.getRoot());
 		serializeGBPCAD.close();
+		
+		ObjectOutputStream serializeMSFT = new ObjectOutputStream(new FileOutputStream("Datas/dataMSFT"));
+		serializeMSFT.writeObject(theActionMSFT.getRoot());
 		serializeMSFT.close();
+		
+		ObjectOutputStream serializeUS30 = new ObjectOutputStream(new FileOutputStream("Datas/dataUS30"));
+		serializeUS30.writeObject(theActionUS30.getRoot());
 		serializeUS30.close();
+		
+		ObjectOutputStream serializeUSDJPY = new ObjectOutputStream(new FileOutputStream("Datas/dataUSDJPY"));
+		serializeUSDJPY.writeObject(theBadgeUSDJPY.getRoot());
 		serializeUSDJPY.close();
+		
+		ObjectOutputStream serializeUSSPX500 = new ObjectOutputStream(new FileOutputStream("Datas/dataUSSPX500"));
+		serializeUSSPX500.writeObject(theActionUSSPX500.getRoot());
 		serializeUSSPX500.close();
+		
+		ObjectOutputStream serializeWTI = new ObjectOutputStream(new FileOutputStream("Datas/dataWTI"));
+		serializeWTI.writeObject(theActionWTI.getRoot());
 		serializeWTI.close();
+		
+		ObjectOutputStream serializeXAUUSD = new ObjectOutputStream(new FileOutputStream("Datas/dataXAUUSD"));
+		serializeXAUUSD.writeObject(theBadgeXAUUSD.getRoot());
 		serializeXAUUSD.close();
 		
 	}
@@ -199,21 +208,45 @@ public class Bank {
 	
 	public void deserialize() throws Exception {
 		
-		ObjectInputStream unserializeAAPL = new ObjectInputStream(new FileInputStream("Datas/dataAAPL.txt"));
-		theActionAAPL.setRoot((Action) unserializeAAPL.readObject());
-		ObjectInputStream unserializeBITCOIN = new ObjectInputStream(new FileInputStream("Datas/dataBITCOIN.txt"));
-		ObjectInputStream unserializeEURUSD = new ObjectInputStream(new FileInputStream("Datas/dataEURUSD.txt"));
-		ObjectInputStream unserializeGBPCAD = new ObjectInputStream(new FileInputStream("Datas/dataGBPCAD.txt"));
-		ObjectInputStream unserializeMSFT = new ObjectInputStream(new FileInputStream("Datas/dataMSFT.txt"));
-		ObjectInputStream unserializeUS30 = new ObjectInputStream(new FileInputStream("Datas/dataUS30.txt"));
-		ObjectInputStream unserializeUSDJPY = new ObjectInputStream(new FileInputStream("Datas/dataUSDJPY.txt"));
-		ObjectInputStream unserializeUSSPX500 = new ObjectInputStream(new FileInputStream("Datas/dataUSSPX500.txt"));
+		ObjectInputStream unserializeAAPL = new ObjectInputStream(new FileInputStream("Datas/dataAAPL"));
+		theActionAAPL.setRoot((NodeAVL<Action>) unserializeAAPL.readObject());
+		unserializeAAPL.close();
+		
+		ObjectInputStream unserializeBITCOIN = new ObjectInputStream(new FileInputStream("Datas/dataBITCOIN"));
+		theBitcoin = (Bitcoin)unserializeBITCOIN.readObject();
+		unserializeBITCOIN.close();
+		
+		ObjectInputStream unserializeEURUSD = new ObjectInputStream(new FileInputStream("Datas/dataEURUSD"));
+		theBadgeEURUSD.setRoot((NodeRB<Badge>)unserializeEURUSD.readObject());
+		unserializeEURUSD.close();
+		
+		ObjectInputStream unserializeGBPCAD = new ObjectInputStream(new FileInputStream("Datas/dataGBPCAD"));
+		theBadgeGBPCAD.setRoot((NodeRB<Badge>) unserializeGBPCAD.readObject());
+		unserializeGBPCAD.close();
+		
+		ObjectInputStream unserializeMSFT = new ObjectInputStream(new FileInputStream("Datas/dataMSFT"));
+		theActionMSFT.setRoot((NodeAVL<Action>)unserializeMSFT.readObject());
+		unserializeMSFT.close();
+		
+		ObjectInputStream unserializeUS30 = new ObjectInputStream(new FileInputStream("Datas/dataUS30"));
+		theActionUS30.setRoot((NodeAVL<Action>)unserializeUS30.readObject());
+		unserializeUS30.close();
+		
+		ObjectInputStream unserializeUSDJPY = new ObjectInputStream(new FileInputStream("Datas/dataUSDJPY"));
+		theBadgeUSDJPY.setRoot((NodeRB<Badge>)unserializeUSDJPY.readObject());
+		unserializeUSDJPY.close();
+		
+		ObjectInputStream unserializeUSSPX500 = new ObjectInputStream(new FileInputStream("Datas/dataUSSPX500"));
+		theActionUSSPX500.setRoot((NodeAVL<Action>)unserializeUSSPX500.readObject());
+		unserializeUSSPX500.close();
+		
 		ObjectInputStream unserializeWTI = new ObjectInputStream(new FileInputStream("Datas/dataWTI.txt"));
+		theActionWTI.setRoot((NodeAVL<Action>)unserializeWTI.readObject());
+		unserializeWTI.close();
+		
 		ObjectInputStream unserializeXAUUSD = new ObjectInputStream(new FileInputStream("Datas/dataXAUUSD.txt"));
-		
-		
-		elBalence = (BalanceGeneral) deserializarObjecto.readObject();
-		deserializarObjecto.close();
+		theBadgeXAUUSD.setRoot((NodeRB<Badge>)unserializeXAUUSD.readObject());
+		unserializeXAUUSD.close();
 		
 	}
 }

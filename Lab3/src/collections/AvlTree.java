@@ -246,6 +246,10 @@ public class AvlTree<T extends Comparable<T>> implements IAVLTree<T>{
 
 		
 		
+	public void setRoot(NodeAVL<T> value) {
+		this.root = value;
+	}
+
 	public boolean validateBSTInvarient(NodeAVL<T> node) {
 		if (node == null) return true;
 			T val = node.value;
