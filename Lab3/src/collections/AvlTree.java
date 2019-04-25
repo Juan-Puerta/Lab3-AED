@@ -1,9 +1,28 @@
 package collections;
 
+import java.io.Serializable;
+
 import interfaces.IAVLTree;
 import world.Action;
 
-public class AvlTree<T extends Comparable<T>> implements IAVLTree<T>{
+public class AvlTree<T extends Comparable<T>> implements IAVLTree<T>, Serializable{
+
+
+	private Action[] theActions;
+	
+	
+	public AvlTree() {
+		theActions = new Action[100000];
+	}
+	
+	
+	public Action[] getTheActions() {
+		return theActions;
+	}
+
+	public void setTheActions(Action[] theActions) {
+		this.theActions = theActions;
+	}
 
 	public NodeAVL<T> root;
 	private int nodeCount = 0;
@@ -245,7 +264,6 @@ public class AvlTree<T extends Comparable<T>> implements IAVLTree<T>{
 		
 
 		
-		
 	public void setRoot(NodeAVL<T> value) {
 		this.root = value;
 	}
@@ -257,7 +275,6 @@ public class AvlTree<T extends Comparable<T>> implements IAVLTree<T>{
 			if (node.left  != null) isValid = isValid && node.left.value.compareTo(val)  < 0;
 			if (node.right != null) isValid = isValid && node.right.value.compareTo(val) > 0;
 			return isValid && validateBSTInvarient(node.left) && validateBSTInvarient(node.right);
-	}
+	}	
 	
-
 }

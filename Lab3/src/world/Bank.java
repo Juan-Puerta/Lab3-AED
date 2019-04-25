@@ -165,7 +165,7 @@ public class Bank {
 	public void serializableAAPL() throws FileNotFoundException, IOException {
 		
 		ObjectOutputStream serializeAAPL = new ObjectOutputStream(new FileOutputStream("Datas/dataAAPL"));
-		serializeAAPL.writeObject(theActionAAPL.getRoot());
+		serializeAAPL.writeObject(theActionAAPL);
 		serializeAAPL.close();
 		
 	}
@@ -181,7 +181,7 @@ public class Bank {
 	public void serializableEURUSD() throws FileNotFoundException, IOException {
 		
 		ObjectOutputStream serializeEURUSD = new ObjectOutputStream(new FileOutputStream("Datas/dataEURUSD"));
-		serializeEURUSD.writeObject(theBadgeEURUSD.getRoot());
+		serializeEURUSD.writeObject(theBadgeEURUSD);
 		serializeEURUSD.close();
 		
 	}
@@ -189,7 +189,7 @@ public class Bank {
 	public void serializableGBPCAD() throws FileNotFoundException, IOException {
 		
 		ObjectOutputStream serializeGBPCAD = new ObjectOutputStream(new FileOutputStream("Datas/dataGBPCAD"));
-		serializeGBPCAD.writeObject(theBadgeGBPCAD.getRoot());
+		serializeGBPCAD.writeObject(theBadgeGBPCAD);
 		serializeGBPCAD.close();
 		
 	}
@@ -197,7 +197,7 @@ public class Bank {
 	public void serializableMSFT() throws FileNotFoundException, IOException {
 		
 		ObjectOutputStream serializeMSFT = new ObjectOutputStream(new FileOutputStream("Datas/dataMSFT"));
-		serializeMSFT.writeObject(theActionMSFT.getRoot());
+		serializeMSFT.writeObject(theActionMSFT);
 		serializeMSFT.close();
 		
 	}
@@ -205,7 +205,7 @@ public class Bank {
 	public void serializableUS30() throws FileNotFoundException, IOException {
 		
 		ObjectOutputStream serializeUS30 = new ObjectOutputStream(new FileOutputStream("Datas/dataUS30"));
-		serializeUS30.writeObject(theActionUS30.getRoot());
+		serializeUS30.writeObject(theActionUS30);
 		serializeUS30.close();
 		
 	}
@@ -213,7 +213,7 @@ public class Bank {
 	public void serializableUSDJPY() throws FileNotFoundException, IOException {
 		
 		ObjectOutputStream serializeUSDJPY = new ObjectOutputStream(new FileOutputStream("Datas/dataUSDJPY"));
-		serializeUSDJPY.writeObject(theBadgeUSDJPY.getRoot());
+		serializeUSDJPY.writeObject(theBadgeUSDJPY);
 		serializeUSDJPY.close();
 		
 	}
@@ -221,7 +221,7 @@ public class Bank {
 	public void serializableUSSPX500() throws FileNotFoundException, IOException {
 		
 		ObjectOutputStream serializeUSSPX500 = new ObjectOutputStream(new FileOutputStream("Datas/dataUSSPX500"));
-		serializeUSSPX500.writeObject(theActionUSSPX500.getRoot());
+		serializeUSSPX500.writeObject(theActionUSSPX500);
 		serializeUSSPX500.close();
 		
 	}
@@ -229,7 +229,7 @@ public class Bank {
 	public void serializableWTI() throws FileNotFoundException, IOException {
 		
 		ObjectOutputStream serializeWTI = new ObjectOutputStream(new FileOutputStream("Datas/dataWTI"));
-		serializeWTI.writeObject(theActionWTI.getRoot());
+		serializeWTI.writeObject(theActionWTI);
 		serializeWTI.close();
 		
 	}
@@ -237,7 +237,7 @@ public class Bank {
 	public void serializableXAUUSD() throws FileNotFoundException, IOException {
 		
 		ObjectOutputStream serializeXAUUSD = new ObjectOutputStream(new FileOutputStream("Datas/dataXAUUSD"));
-		serializeXAUUSD.writeObject(theBadgeXAUUSD.getRoot());
+		serializeXAUUSD.writeObject(theBadgeXAUUSD);
 		serializeXAUUSD.close();
 		
 	}
@@ -245,7 +245,7 @@ public class Bank {
 
 	public void deserializeAAPL() throws Exception {
 		ObjectInputStream unserializeAAPL = new ObjectInputStream(new FileInputStream("Datas/dataAAPL"));
-		theActionAAPL.setRoot((NodeAVL<Action>) unserializeAAPL.readObject());
+		setTheActionAAPL((AvlTree<Action>) unserializeAAPL.readObject());
 		unserializeAAPL.close();
 	}
 	
@@ -257,56 +257,52 @@ public class Bank {
 	
 	public void deserializeEURUSD() throws Exception {
 		ObjectInputStream unserializeEURUSD = new ObjectInputStream(new FileInputStream("Datas/dataEURUSD"));
-		theBadgeEURUSD.setRoot((NodeRB<Badge>)unserializeEURUSD.readObject());
+		setTheBadgeEURUSD((RebBlackTree<Badge>)unserializeEURUSD.readObject());
 		unserializeEURUSD.close();
 	}
 
 	public void deserializeGBPCAD() throws Exception {
 		ObjectInputStream unserializeGBPCAD = new ObjectInputStream(new FileInputStream("Datas/dataGBPCAD"));
-		theBadgeGBPCAD.setRoot((NodeRB<Badge>) unserializeGBPCAD.readObject());
+		setTheBadgeGBPCAD((RebBlackTree<Badge>) unserializeGBPCAD.readObject());
 		unserializeGBPCAD.close();
 	}
 	
 	public void deserializeMSFT() throws Exception {
 		ObjectInputStream unserializeMSFT = new ObjectInputStream(new FileInputStream("Datas/dataMSFT"));
-		theActionMSFT.setRoot((NodeAVL<Action>)unserializeMSFT.readObject());
+		setTheActionMSFT((AvlTree<Action>)unserializeMSFT.readObject());
 		unserializeMSFT.close();
 	}
 	
 	public void deserializeUS30() throws Exception {
 		ObjectInputStream unserializeUS30 = new ObjectInputStream(new FileInputStream("Datas/dataUS30"));
-		theActionUS30.setRoot((NodeAVL<Action>)unserializeUS30.readObject());
+		setTheActionUS30((AvlTree<Action>)unserializeUS30.readObject());
+//		theActionUS30.setRoot((NodeAVL<Action>)unserializeUS30.readObject());
 		unserializeUS30.close();
 	}
 	
 	public void deserializeUSDJPY() throws Exception {
 		ObjectInputStream unserializeUSDJPY = new ObjectInputStream(new FileInputStream("Datas/dataUSDJPY"));
-		theBadgeUSDJPY.setRoot((NodeRB<Badge>)unserializeUSDJPY.readObject());
+		setTheBadgeUSDJPY((RebBlackTree<Badge>)unserializeUSDJPY.readObject());
 		unserializeUSDJPY.close();
 	}
 	
 	public void deserializeUSDPX500() throws Exception {
 		ObjectInputStream unserializeUSSPX500 = new ObjectInputStream(new FileInputStream("Datas/dataUSSPX500"));
-		theActionUSSPX500.setRoot((NodeAVL<Action>)unserializeUSSPX500.readObject());
+		setTheActionUSSPX500((AvlTree<Action>)unserializeUSSPX500.readObject());
 		unserializeUSSPX500.close();
 	}
 	
 	public void deserializeWTI() throws Exception {
 		ObjectInputStream unserializeWTI = new ObjectInputStream(new FileInputStream("Datas/dataWTI"));
-		theActionWTI.setRoot((NodeAVL<Action>)unserializeWTI.readObject());
+		setTheActionWTI((AvlTree<Action>)unserializeWTI.readObject());
 		unserializeWTI.close();
 	}
 	
 	public void deserializeXAUUSAD() throws Exception {
 		ObjectInputStream unserializeXAUUSD = new ObjectInputStream(new FileInputStream("Datas/dataXAUUSD"));
-		theBadgeXAUUSD.setRoot((NodeRB<Badge>)unserializeXAUUSD.readObject());
+		setTheBadgeXAUUSD((RebBlackTree<Badge>)unserializeXAUUSD.readObject());
 		unserializeXAUUSD.close();
 	}
 	
-<<<<<<< HEAD
-=======
 
-	
-	
->>>>>>> dff98519f6867d49852c58bcb6fa0c834328c6fa
 }

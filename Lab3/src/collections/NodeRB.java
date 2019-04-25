@@ -3,13 +3,13 @@ package collections;
 import java.io.Serializable;
 import java.util.List;
 import exceptions.*;
+import world.Badge;
 
 public class NodeRB<T extends Comparable<T>> implements Serializable{
 
 	public static final int BLACK = 1;
 	public static final int RED = 0;
-
-
+	
 	private NodeRB<T> rightSon;
 	private NodeRB<T> leftSon;
 	private NodeRB<T> father;
@@ -534,5 +534,7 @@ public class NodeRB<T extends Comparable<T>> implements Serializable{
 			this.answer = answer;
 		}
 	}
+
+	
 	
 }

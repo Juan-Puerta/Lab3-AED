@@ -20,12 +20,11 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
 	
 	private Bank theBank;
-	
-<<<<<<< HEAD
+
 	public Main() throws Exception {
 		theBank = new Bank();
 		
-//		readTxt("data/BTCUSD prices.txt");
+//		readTxt("data/#US30 prices.txt");
 		
 		if(new File("Datas/dataAAPL").length() > 0) {
 			theBank.deserializeAAPL();
@@ -58,46 +57,11 @@ public class Main extends Application {
 		if(new File("Datas/dataBITCOIN").length() > 0) {
 			theBank.deserializeBITCOIN();
 		}
-		System.out.println("Caca");
-		System.out.println(theBank.getTheActionUS30().getRoot().getValue().getPrice());
-		System.out.println(theBank.getTheBadgeEURUSD().getRoot().getDate().getPrice());
+//		System.out.println("Caca");
+//		System.out.println(theBank.getTheActionUS30().getRoot().getValue().getPrice());
+//		System.out.println(theBank.getTheBadgeEURUSD().getRoot().getDate().getPrice());
+		System.out.println(theBank.getTheActionUS30().getTheActions()[0].getPrice());
 		
-=======
-	public Main() throws IOException {
-		theBank = new Bank();
-<<<<<<< HEAD
-//		try {
-			readTxt("data/BTCUSD prices.txt");
-//		} catch (IOException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-=======
-		try {
-			readTxt("data/USDJPY prices.txt");
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
->>>>>>> a95105753bb9c11e03f39aa1afc327be79bb209e
-//		try {
-//			if(theBank.getTheActionAAPL() == null || theBank.getTheActionMSFT() == null || theBank.getTheActionUS30() == null || 
-//			theBank.getTheActionUSSPX500() == null || theBank.getTheActionWTI() == null ||  theBank.getTheBadgeEURUSD() == null || 
-//			theBank.getTheBadgeGBPCAD() == null ||  theBank.getTheBadgeUSDJPY() == null ||  theBank.getTheBadgeXAUUSD() == null || 
-//			theBank.getTheBitcoin() == null) {
-//				theBank.deserialize();
-//			}
-//		}catch(Exception e){
-//			System.out.println("hola");
-//		}
-//		System.out.println(theBank.getTheActionUSSPX500().getRoot().getValue().getPrice());
-<<<<<<< HEAD
-		System.out.println(theBank.getTheBitcoin().getDate());
-=======
-//		System.out.println(theBank.getTheBitcoin().getDate());
-//		System.out.println(theBank.getTheActionUSSPX500().getRoot().getValue().getPrice());
->>>>>>> a95105753bb9c11e03f39aa1afc327be79bb209e
->>>>>>> dff98519f6867d49852c58bcb6fa0c834328c6fa
 	}
 	
 	public Bank getTheBank() {
@@ -116,35 +80,37 @@ public class Main extends Application {
 		while((line = b.readLine()) != null) {
 			String lineNew = line.replaceFirst(",", "");
 			String[] infoBank = lineNew.split(" ");
-<<<<<<< HEAD
-//			System.out.println("nada");
-=======
 			System.out.println(i);
->>>>>>> a95105753bb9c11e03f39aa1afc327be79bb209e
 			if(infoBank[0].equalsIgnoreCase("#US30")) {
 				Action theAction = new Action(infoBank[0], parseDate(infoBank), Double.parseDouble(infoBank[3]));	
 				theBank.getTheActionUS30().insert(theAction);
+				theBank.getTheActionUS30().getTheActions()[i] = theAction;
 //				theBank.serializableUS30();
 			}else if(infoBank[0].equalsIgnoreCase("#USSPX500")) {
 				Action theAction = new Action(infoBank[0], parseDate(infoBank), Double.parseDouble(infoBank[3]));
 				theBank.getTheActionUSSPX500().insert(theAction);
+				theBank.getTheActionUSSPX500().getTheActions()[i] = theAction;
 //				theBank.serializableUSSPX500();
 			}else if(infoBank[0].equalsIgnoreCase("#AAPL")) {
 				Action theAction = new Action(infoBank[0], parseDate(infoBank), Double.parseDouble(infoBank[3]));
 				theBank.getTheActionAAPL().insert(theAction);
+				theBank.getTheActionAAPL().getTheActions()[i] = theAction;
 //				theBank.serializableAAPL();
 			}else if(infoBank[0].equalsIgnoreCase("#MSFT")) {
 				Action theAction = new Action(infoBank[0], parseDate(infoBank), Double.parseDouble(infoBank[3]));
 				theBank.getTheActionMSFT().insert(theAction);
+				theBank.getTheActionMSFT().getTheActions()[i] = theAction;
 //				theBank.serializableMSFT();
 			}else if(infoBank[0].equalsIgnoreCase("WTI")) {
 				Action theAction = new Action(infoBank[0], parseDate(infoBank), Double.parseDouble(infoBank[3]));
 				theBank.getTheActionWTI().insert(theAction);
+				theBank.getTheActionWTI().getTheActions()[i] = theAction;
 //				theBank.serializableWTI();
 			}else if(infoBank[0].equalsIgnoreCase("XAUUSD")) {
 				Badge theBadge = new Badge(infoBank[0], parseDate(infoBank), Double.parseDouble(infoBank[3]));
 				try {
 					theBank.getTheBadgeXAUUSD().insert(theBadge);
+					theBank.getTheBadgeXAUUSD().getTheBadges()[i] = theBadge;
 //					theBank.serializableXAUUSD();
 				} catch (ElementExist e) {
 					// TODO Auto-generated catch block
@@ -154,6 +120,7 @@ public class Main extends Application {
 				Badge theBadge = new Badge(infoBank[0], parseDate(infoBank), Double.parseDouble(infoBank[3]));
 				try {
 					theBank.getTheBadgeEURUSD().insert(theBadge);
+					theBank.getTheBadgeEURUSD().getTheBadges()[i] = theBadge;
 //					theBank.serializableEURUSD();
 				} catch (ElementExist e) {
 					// TODO Auto-generated catch block
@@ -163,6 +130,7 @@ public class Main extends Application {
 				Badge theBadge = new Badge(infoBank[0], parseDate(infoBank), Double.parseDouble(infoBank[3]));
 				try {
 					theBank.getTheBadgeGBPCAD().insert(theBadge);
+					theBank.getTheBadgeGBPCAD().getTheBadges()[i] = theBadge;
 //					theBank.serializableGBPCAD();
 				} catch (ElementExist e) {
 					// TODO Auto-generated catch block
@@ -172,6 +140,7 @@ public class Main extends Application {
 				Badge theBadge = new Badge(infoBank[0], parseDate(infoBank), Double.parseDouble(infoBank[3]));
 				try {
 					theBank.getTheBadgeUSDJPY().insert(theBadge);
+					theBank.getTheBadgeUSDJPY().getTheBadges()[i] = theBadge;
 //					theBank.serializableUSDJPY();
 				} catch (ElementExist e) {
 					// TODO Auto-generated catch block
@@ -184,7 +153,7 @@ public class Main extends Application {
 			}
 			i++;
 		}
-//		theBank.serializableBITCOIN();
+		theBank.serializableUS30();
 	
 	}
 

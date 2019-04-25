@@ -7,14 +7,28 @@ import org.w3c.dom.Node;
 
 import exceptions.*;
 import interfaces.IRBTree;
+import world.Badge;
 
 public class RebBlackTree<T extends Comparable<T>> implements IRBTree<T>{
 
 	private NodeRB<T> root;
-
+	private Badge[] theBadges;
+	
 	public RebBlackTree(){
 		root = null;
+		theBadges = new Badge[5000000];
 	}
+	
+	
+	public Badge[] getTheBadges() {
+		return theBadges;
+	}
+
+
+	public void setTheBadges(Badge[] theBadges) {
+		this.theBadges = theBadges;
+	}
+
 
 	public void insert(T date) throws ElementExist {
 		NodeRB<T> node = new NodeRB<T>( date );
