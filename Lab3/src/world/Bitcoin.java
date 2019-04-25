@@ -5,6 +5,11 @@ import java.util.Date;
 
 public class Bitcoin implements Comparable<Bitcoin>, Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3476279828461051682L;
+	
 	private String name;
 	private double price;
 	private Date date;

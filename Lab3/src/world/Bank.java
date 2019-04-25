@@ -1,7 +1,9 @@
 package world;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Date;
@@ -160,94 +162,145 @@ public class Bank {
 		this.theBitcoin = theBitcoin;
 	}	
 	
-	
-	public void serializable() throws Exception{
+	public void serializableAAPL() throws FileNotFoundException, IOException {
 		
 		ObjectOutputStream serializeAAPL = new ObjectOutputStream(new FileOutputStream("Datas/dataAAPL"));
 		serializeAAPL.writeObject(theActionAAPL.getRoot());
 		serializeAAPL.close();
 		
+	}
+	
+	public void serializableBITCOIN() throws FileNotFoundException, IOException {
+		
 		ObjectOutputStream serializeBITCOIN = new ObjectOutputStream(new FileOutputStream("Datas/dataBITCOIN"));
 		serializeBITCOIN.writeObject(theBitcoin);
 		serializeBITCOIN.close();
+		
+	}
+	
+	public void serializableEURUSD() throws FileNotFoundException, IOException {
 		
 		ObjectOutputStream serializeEURUSD = new ObjectOutputStream(new FileOutputStream("Datas/dataEURUSD"));
 		serializeEURUSD.writeObject(theBadgeEURUSD.getRoot());
 		serializeEURUSD.close();
 		
+	}
+	
+	public void serializableGBPCAD() throws FileNotFoundException, IOException {
+		
 		ObjectOutputStream serializeGBPCAD = new ObjectOutputStream(new FileOutputStream("Datas/dataGBPCAD"));
 		serializeGBPCAD.writeObject(theBadgeGBPCAD.getRoot());
 		serializeGBPCAD.close();
+		
+	}
+	
+	public void serializableMSFT() throws FileNotFoundException, IOException {
 		
 		ObjectOutputStream serializeMSFT = new ObjectOutputStream(new FileOutputStream("Datas/dataMSFT"));
 		serializeMSFT.writeObject(theActionMSFT.getRoot());
 		serializeMSFT.close();
 		
+	}
+	
+	public void serializableUS30() throws FileNotFoundException, IOException {
+		
 		ObjectOutputStream serializeUS30 = new ObjectOutputStream(new FileOutputStream("Datas/dataUS30"));
 		serializeUS30.writeObject(theActionUS30.getRoot());
 		serializeUS30.close();
+		
+	}
+	
+	public void serializableUSDJPY() throws FileNotFoundException, IOException {
 		
 		ObjectOutputStream serializeUSDJPY = new ObjectOutputStream(new FileOutputStream("Datas/dataUSDJPY"));
 		serializeUSDJPY.writeObject(theBadgeUSDJPY.getRoot());
 		serializeUSDJPY.close();
 		
+	}
+	
+	public void serializableUSSPX500() throws FileNotFoundException, IOException {
+		
 		ObjectOutputStream serializeUSSPX500 = new ObjectOutputStream(new FileOutputStream("Datas/dataUSSPX500"));
 		serializeUSSPX500.writeObject(theActionUSSPX500.getRoot());
 		serializeUSSPX500.close();
 		
+	}
+	
+	public void serializableWTI() throws FileNotFoundException, IOException {
+		
 		ObjectOutputStream serializeWTI = new ObjectOutputStream(new FileOutputStream("Datas/dataWTI"));
 		serializeWTI.writeObject(theActionWTI.getRoot());
 		serializeWTI.close();
+		
+	}
+	
+	public void serializableXAUUSD() throws FileNotFoundException, IOException {
 		
 		ObjectOutputStream serializeXAUUSD = new ObjectOutputStream(new FileOutputStream("Datas/dataXAUUSD"));
 		serializeXAUUSD.writeObject(theBadgeXAUUSD.getRoot());
 		serializeXAUUSD.close();
 		
 	}
-
-
 	
-	public void deserialize() throws Exception {
-		
+
+	public void deserializeAAPL() throws Exception {
 		ObjectInputStream unserializeAAPL = new ObjectInputStream(new FileInputStream("Datas/dataAAPL"));
 		theActionAAPL.setRoot((NodeAVL<Action>) unserializeAAPL.readObject());
 		unserializeAAPL.close();
-		
+	}
+	
+	public void deserializeBITCOIN() throws Exception {
 		ObjectInputStream unserializeBITCOIN = new ObjectInputStream(new FileInputStream("Datas/dataBITCOIN"));
 		theBitcoin = (Bitcoin)unserializeBITCOIN.readObject();
 		unserializeBITCOIN.close();
-		
+	}
+	
+	public void deserializeEURUSD() throws Exception {
 		ObjectInputStream unserializeEURUSD = new ObjectInputStream(new FileInputStream("Datas/dataEURUSD"));
 		theBadgeEURUSD.setRoot((NodeRB<Badge>)unserializeEURUSD.readObject());
 		unserializeEURUSD.close();
-		
+	}
+
+	public void deserializeGBPCAD() throws Exception {
 		ObjectInputStream unserializeGBPCAD = new ObjectInputStream(new FileInputStream("Datas/dataGBPCAD"));
 		theBadgeGBPCAD.setRoot((NodeRB<Badge>) unserializeGBPCAD.readObject());
 		unserializeGBPCAD.close();
-		
+	}
+	
+	public void deserializeMSFT() throws Exception {
 		ObjectInputStream unserializeMSFT = new ObjectInputStream(new FileInputStream("Datas/dataMSFT"));
 		theActionMSFT.setRoot((NodeAVL<Action>)unserializeMSFT.readObject());
 		unserializeMSFT.close();
-		
+	}
+	
+	public void deserializeUS30() throws Exception {
 		ObjectInputStream unserializeUS30 = new ObjectInputStream(new FileInputStream("Datas/dataUS30"));
 		theActionUS30.setRoot((NodeAVL<Action>)unserializeUS30.readObject());
 		unserializeUS30.close();
-		
+	}
+	
+	public void deserializeUSDJPY() throws Exception {
 		ObjectInputStream unserializeUSDJPY = new ObjectInputStream(new FileInputStream("Datas/dataUSDJPY"));
 		theBadgeUSDJPY.setRoot((NodeRB<Badge>)unserializeUSDJPY.readObject());
 		unserializeUSDJPY.close();
-		
+	}
+	
+	public void deserializeUSDPX500() throws Exception {
 		ObjectInputStream unserializeUSSPX500 = new ObjectInputStream(new FileInputStream("Datas/dataUSSPX500"));
 		theActionUSSPX500.setRoot((NodeAVL<Action>)unserializeUSSPX500.readObject());
 		unserializeUSSPX500.close();
-		
-		ObjectInputStream unserializeWTI = new ObjectInputStream(new FileInputStream("Datas/dataWTI.txt"));
+	}
+	
+	public void deserializeWTI() throws Exception {
+		ObjectInputStream unserializeWTI = new ObjectInputStream(new FileInputStream("Datas/dataWTI"));
 		theActionWTI.setRoot((NodeAVL<Action>)unserializeWTI.readObject());
 		unserializeWTI.close();
-		
-		ObjectInputStream unserializeXAUUSD = new ObjectInputStream(new FileInputStream("Datas/dataXAUUSD.txt"));
+	}
+	
+	public void deserializeXAUUSAD() throws Exception {
+		ObjectInputStream unserializeXAUUSD = new ObjectInputStream(new FileInputStream("Datas/dataXAUUSD"));
 		theBadgeXAUUSD.setRoot((NodeRB<Badge>)unserializeXAUUSD.readObject());
 		unserializeXAUUSD.close();
-		
 	}
+	
 }
