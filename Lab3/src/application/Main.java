@@ -24,7 +24,7 @@ public class Main extends Application {
 	public Main() throws Exception {
 		theBank = new Bank();
 		
-//		readTxt("data/#US30 prices.txt");
+		//readTxt("data/XAUUSD prices.txt");
 		
 		if(new File("Datas/dataAAPL").length() > 0) {
 			theBank.deserializeAAPL();
@@ -43,24 +43,27 @@ public class Main extends Application {
 			theBank.deserializeWTI();
 		}
 		if(theBank.getTheBadgeEURUSD().getRoot() == null) {
+			System.out.println("Caca");
 			theBank.deserializeEURUSD();
 		}
 		if(theBank.getTheBadgeGBPCAD().getRoot() == null) {
+			System.out.println("Caca");
 			theBank.deserializeGBPCAD();
 		}
 		if(theBank.getTheBadgeUSDJPY().getRoot() == null) {
+			System.out.println("Caca");
 			theBank.deserializeUSDJPY();
 		}
 		if(theBank.getTheBadgeXAUUSD().getRoot() == null) {
+			System.out.println("Caca");
 			theBank.deserializeXAUUSAD();
 		}
-		if(new File("Datas/dataBITCOIN").length() > 0) {
-			theBank.deserializeBITCOIN();
-		}
-//		System.out.println("Caca");
-//		System.out.println(theBank.getTheActionUS30().getRoot().getValue().getPrice());
-//		System.out.println(theBank.getTheBadgeEURUSD().getRoot().getDate().getPrice());
-		System.out.println(theBank.getTheActionUS30().getTheActions()[0].getPrice());
+//		if(new File("Datas/dataBITCOIN").length() > 0) {
+//			System.out.println("Caca");
+//			theBank.deserializeBITCOIN();
+//		}
+
+		
 		
 	}
 	
@@ -153,10 +156,38 @@ public class Main extends Application {
 			}
 			i++;
 		}
-		theBank.serializableUS30();
-	
+		savedTxt(linkTxt);
+		
 	}
-
+	
+	public void savedTxt(String txt) throws FileNotFoundException, IOException  {
+		 
+		if(txt.equalsIgnoreCase("data/#US30 prices.txt")) {
+			theBank.serializableUS30();
+		}
+		else if(txt.equalsIgnoreCase("data/#USSPX500 prices.txt")) {
+			theBank.serializableUSSPX500();
+		}
+		else if(txt.equalsIgnoreCase("data/BTCUSD prices.txt")) {
+			theBank.serializableBITCOIN();
+		}
+		else if(txt.equalsIgnoreCase("data/EURUSD prices.txt")) {
+			theBank.serializableEURUSD();
+		}
+		else if(txt.equalsIgnoreCase("data/GBPCAD prices.txt")) {
+			theBank.serializableGBPCAD();
+		}
+		else if(txt.equalsIgnoreCase("data/USDJPY prices.txt")) {
+			theBank.serializableUSDJPY();
+		}
+		else if(txt.equalsIgnoreCase("data/WTI prices.txt")) {
+			theBank.serializableWTI();
+		}
+		else if(txt.equalsIgnoreCase("data/XAUUSD prices.txt")) {
+			theBank.serializableXAUUSD();
+		}
+	}
+	
 	public Date parseDate(String[] info) {
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		String parseConvert = info[1]+" "+info[2].replace(",","");

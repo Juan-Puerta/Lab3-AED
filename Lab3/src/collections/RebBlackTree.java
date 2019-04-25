@@ -1,5 +1,6 @@
 package collections;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import exceptions.*;
 import interfaces.IRBTree;
 import world.Badge;
 
-public class RebBlackTree<T extends Comparable<T>> implements IRBTree<T>{
+public class RebBlackTree<T extends Comparable<T>> implements IRBTree<T>,Serializable{
 
 	private NodeRB<T> root;
 	private Badge[] theBadges;
