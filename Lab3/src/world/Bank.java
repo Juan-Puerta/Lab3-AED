@@ -50,8 +50,9 @@ public class Bank {
 		if(theBitcoin == null) {
 			theBitcoin = newBitcoin;
 		}else {
-			newBitcoin.setNext(theBitcoin);
+			Bitcoin aux = theBitcoin;
 			theBitcoin = newBitcoin;
+			theBitcoin.setNext(aux);
 		}
 		
 	}
