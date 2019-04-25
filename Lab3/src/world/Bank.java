@@ -249,4 +249,8 @@ public class Bank {
 		unserializeXAUUSD.close();
 		
 	}
+	
+
+	
+	
 }

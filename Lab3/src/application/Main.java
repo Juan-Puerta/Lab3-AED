@@ -20,10 +20,10 @@ public class Main extends Application {
 	
 	private Bank theBank;
 	
-	public Main() {
+	public Main() throws IOException {
 		theBank = new Bank();
 //		try {
-//			readTxt("data/BTCUSD prices.txt");
+			readTxt("data/BTCUSD prices.txt");
 //		} catch (IOException e1) {
 //			// TODO Auto-generated catch block
 //			e1.printStackTrace();
@@ -39,7 +39,7 @@ public class Main extends Application {
 //			System.out.println("hola");
 //		}
 //		System.out.println(theBank.getTheActionUSSPX500().getRoot().getValue().getPrice());
-//		System.out.println(theBank.getTheBitcoin().getDate());
+		System.out.println(theBank.getTheBitcoin().getDate());
 	}
 	
 	public Bank getTheBank() {
@@ -57,7 +57,7 @@ public class Main extends Application {
 		while((line = b.readLine()) != null) {
 			String lineNew = line.replaceFirst(",", "");
 			String[] infoBank = lineNew.split(" ");
-			System.out.println("nada");
+//			System.out.println("nada");
 			if(infoBank[0].equalsIgnoreCase("#US30")) {
 				System.out.println(infoBank[3]);
 				Action theAction = new Action(infoBank[0], parseDate(infoBank), Double.parseDouble(infoBank[3]));	
@@ -146,7 +146,7 @@ public class Main extends Application {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		launch(args);
 		Main theMain = new Main();
 	}
