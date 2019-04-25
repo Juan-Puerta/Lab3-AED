@@ -22,12 +22,21 @@ public class Main extends Application {
 	
 	public Main() throws IOException {
 		theBank = new Bank();
+<<<<<<< HEAD
 //		try {
 			readTxt("data/BTCUSD prices.txt");
 //		} catch (IOException e1) {
 //			// TODO Auto-generated catch block
 //			e1.printStackTrace();
 //		}
+=======
+		try {
+			readTxt("data/USDJPY prices.txt");
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+>>>>>>> a95105753bb9c11e03f39aa1afc327be79bb209e
 //		try {
 //			if(theBank.getTheActionAAPL() == null || theBank.getTheActionMSFT() == null || theBank.getTheActionUS30() == null || 
 //			theBank.getTheActionUSSPX500() == null || theBank.getTheActionWTI() == null ||  theBank.getTheBadgeEURUSD() == null || 
@@ -39,7 +48,12 @@ public class Main extends Application {
 //			System.out.println("hola");
 //		}
 //		System.out.println(theBank.getTheActionUSSPX500().getRoot().getValue().getPrice());
+<<<<<<< HEAD
 		System.out.println(theBank.getTheBitcoin().getDate());
+=======
+//		System.out.println(theBank.getTheBitcoin().getDate());
+//		System.out.println(theBank.getTheActionUSSPX500().getRoot().getValue().getPrice());
+>>>>>>> a95105753bb9c11e03f39aa1afc327be79bb209e
 	}
 	
 	public Bank getTheBank() {
@@ -54,10 +68,15 @@ public class Main extends Application {
 		String line;
 		FileReader f = new FileReader(linkTxt);
 		BufferedReader b = new BufferedReader(f);
+		int i = 0;
 		while((line = b.readLine()) != null) {
 			String lineNew = line.replaceFirst(",", "");
 			String[] infoBank = lineNew.split(" ");
+<<<<<<< HEAD
 //			System.out.println("nada");
+=======
+			System.out.println(i);
+>>>>>>> a95105753bb9c11e03f39aa1afc327be79bb209e
 			if(infoBank[0].equalsIgnoreCase("#US30")) {
 				System.out.println(infoBank[3]);
 				Action theAction = new Action(infoBank[0], parseDate(infoBank), Double.parseDouble(infoBank[3]));	
@@ -110,9 +129,10 @@ public class Main extends Application {
 				Bitcoin theBitcoin = new Bitcoin(infoBank[0], parseDate(infoBank), Double.parseDouble(infoBank[3]));
 				theBank.addBitCoin(theBitcoin);
 			}
-			
+			i++;
 		}
 		try {
+			System.out.println("hoal");
 			theBank.serializable();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

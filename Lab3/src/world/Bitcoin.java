@@ -20,10 +20,10 @@ public class Bitcoin implements Comparable<Bitcoin>, Serializable{
 
 	public Bitcoin(String name, Date date, double price) {
 		super();
-		this.price = price;
-		this.date = date;
-		this.next = null;
 		this.name = name;
+		this.date = date;
+		this.price = price;
+		this.next = null;
 	}
 
 
