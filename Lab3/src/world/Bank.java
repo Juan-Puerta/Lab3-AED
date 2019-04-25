@@ -303,4 +303,10 @@ public class Bank {
 		unserializeXAUUSD.close();
 	}
 	
+<<<<<<< HEAD
+=======
+
+	
+	
+>>>>>>> dff98519f6867d49852c58bcb6fa0c834328c6fa
 }
