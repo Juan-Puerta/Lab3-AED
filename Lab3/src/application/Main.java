@@ -27,35 +27,39 @@ public class Main extends Application {
 		//readTxt("data/XAUUSD prices.txt");
 		
 		if(new File("Datas/dataAAPL").length() > 0) {
+			System.out.println("Cargando base de datos...");
 			theBank.deserializeAAPL();
 		}
 		if(new File("Datas/dataMSFT").length() > 0) {
+			System.out.println("Cargando base de datos...");
 			theBank.deserializeMSFT();
 		}
 		if(theBank.getTheActionUS30().getRoot() == null) {
+			System.out.println("Cargando estructuras de datos...");
 			theBank.deserializeUS30();
 		}
 		if(theBank.getTheActionUSSPX500().getRoot() == null) {
+			System.out.println("Cargando estructuras de datos...");
 			theBank.deserializeUSDPX500();
 		}
 		if(theBank.getTheActionWTI().getRoot() == null) {
-			System.out.println("Caca");
+			System.out.println("Cargando estructuras de datos...");
 			theBank.deserializeWTI();
 		}
 		if(theBank.getTheBadgeEURUSD().getRoot() == null) {
-			System.out.println("Caca");
+			System.out.println("Cargando estructuras de datos...");
 			theBank.deserializeEURUSD();
 		}
 		if(theBank.getTheBadgeGBPCAD().getRoot() == null) {
-			System.out.println("Caca");
+			System.out.println("Cargando estructuras de datos...");
 			theBank.deserializeGBPCAD();
 		}
 		if(theBank.getTheBadgeUSDJPY().getRoot() == null) {
-			System.out.println("Caca");
+			System.out.println("Cargando estructuras de datos...");
 			theBank.deserializeUSDJPY();
 		}
 		if(theBank.getTheBadgeXAUUSD().getRoot() == null) {
-			System.out.println("Caca");
+			System.out.println("Cargando estructuras de datos...");
 			theBank.deserializeXAUUSAD();
 		}
 //		if(new File("Datas/dataBITCOIN").length() > 0) {
